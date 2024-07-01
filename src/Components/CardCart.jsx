@@ -11,11 +11,11 @@ const CardCart = () => {
                     const price = val.price;
                     const DiscountPrice = price * (val.discountPercentage / 100);
                     const FinalPrice = price - DiscountPrice;
-
-                    const handleAdd = () =>{
+                    
+                    const handleAdd = (id) =>{
                         setQuantity(quantity + 1);
                     }
-                    const handleSub = () =>{
+                    const handleSub = (id) =>{
                         setQuantity(quantity - 1);
                     }
 
@@ -23,7 +23,7 @@ const CardCart = () => {
 
                     return (
                         
-                        <div className="col-12 d-flex justify-content-center align-items-center" key={idx}>
+                        <div key={idx} className="col-12 d-flex justify-content-center align-items-center" >
                             <div className="card mt-3" style={{width: "80%", borderRadius:"20px"}}>
                                 <div className="row g-0">
                                     <div className="col-md-5  d-flex justify-content-center align-items-center">
@@ -69,9 +69,9 @@ const CardCart = () => {
                                                             <p><b>Rating: </b>{val.rating}</p>
                                                         </div>
                                                         <div className="col d-flex justify-content-end gap-2">
-                                                            <button className="btn btn-secondary" onClick={handleSub}>-</button>
+                                                            <button className="btn btn-secondary" onClick={()=>handleSub(idx)}>-</button>
                                                             <span className="d-flex justify-content-center align-items-center">{quantity}</span>
-                                                            <button className="btn btn-secondary" onClick={handleAdd}>+</button>
+                                                            <button className="btn btn-secondary" onClick={()=>handleAdd(idx)}>+</button>
                                                         </div>
                                                     </div>
 
